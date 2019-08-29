@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include pipesmanufacturing *.css
+recursive-include pipesmanufacturing *.csv
+recursive-include pipesmanufacturing *.html
+recursive-include pipesmanufacturing *.ico
+recursive-include pipesmanufacturing *.js
+recursive-include pipesmanufacturing *.json
+recursive-include pipesmanufacturing *.md
+recursive-include pipesmanufacturing *.png
+recursive-include pipesmanufacturing *.py
+recursive-include pipesmanufacturing *.svg
+recursive-include pipesmanufacturing *.txt
+recursive-exclude pipesmanufacturing *.pyc

@@ -1,0 +1,100 @@
+{
+ "autoname": "hash",
+ "creation": "2019-08-09 12:17:58.433402",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "batch_no",
+  "column_break_3",
+  "item_code",
+  "item_group",
+  "column_break_5",
+  "batch_qty",
+  "consumed_qty",
+  "batch_warehouse",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "print_width": "150px",
+   "read_only": 1,
+   "reqd": 1,
+   "width": "150px"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Group",
+   "options": "Item Group",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Batch Quantity",
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_warehouse",
+   "fieldtype": "Data",
+   "label": "Batch Warehouse",
+   "read_only": 1
+  },
+  {
+   "default": "Not Transferred",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Not Transferred\nTransferred",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "consumed_qty",
+   "fieldtype": "Float",
+   "label": "Consumed Quantity",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-25 02:03:45.170523",
+ "modified_by": "Administrator",
+ "module": "Pipes Manufacturing",
+ "name": "Pipes Work Order Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

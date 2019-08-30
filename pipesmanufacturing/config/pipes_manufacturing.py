@@ -5,23 +5,24 @@ from frappe import _
 def get_data():
     return[
         {
-            "label": ("Production"),
+			
+            "label": _("Work Order"),
             "items": [
                 {
                     "type": "doctype",
                     "name": "Pipes Work Order",
+                    #"lable": _("Pipes Work Order"),
+                    "description": _("Managing ERW pipe manufactuing"),
                     "onboard": 1,
-                    "lable": _("Pipes Work Order"),
-                    #"description": _("Managing ERW pipe manufactuing"),
                 },
 
                 {
                     "type": "doctype",
                     "name": "Strip Work Order",
+                    #"lable": _("Strip Work Order"),
+                    "description": _("Managing HRC and CRC strip Work Order"),
                     "onboard": 1,
-                    "lable": _("Strip Work Order"),
-                    #"description": _("Managing HRC and CRC strip Work Order"),
-                },
+                }
         #        {
         #            "type": "doctype",
         #            "name": "Coil Work Order",
@@ -39,5 +40,6 @@ def get_data():
         #            "label": _("Manufacturing Settings"),
         #            "description": _("Settings for manufacturing"),
         #        }
-            ]
-    }]
+            ]    
+        }
+    ]

@@ -398,10 +398,6 @@ def material_manufacture(pipes_work_order,manufacture_qty,status):
 					wip_strip_reserved_qty_for_production = wip_strip.reserved_qty_for_production - (item.batch_qty-item.consumed_qty)
 					wip_strip_reserved_qty_for_production = round(wip_strip_reserved_qty_for_production,2)
 					temp_val = (round((item.batch_qty - item.consumed_qty),2))
-					#frappe.msgprint("remaining strip: {0}".format(temp_val))
-					#frappe.msgprint("prev reserved qty: {0}".format(wip_strip.reserved_qty_for_production))
-					#frappe.msgprint("new reserved qty: {0}".format(wip_strip_reserved_qty_for_production))			
-					#frappe.throw("2 was called")
 					item.db_set("consumed_qty",item.batch_qty)
 					update_projected_qty(item.item_code,pwo.wip_warehouse,None,None,wip_strip_reserved_qty_for_production)
 			
@@ -418,10 +414,6 @@ def material_manufacture(pipes_work_order,manufacture_qty,status):
 				wip_strip_reserved_qty_for_production = wip_strip.reserved_qty_for_production -round(temp_total_pipe_weight,2)
 				wip_strip_reserved_qty_for_production = round(wip_strip_reserved_qty_for_production,2)
 				temp_val = (round((item.batch_qty - item.consumed_qty),2))
-				#frappe.msgprint("remaining strip: {0}".format(temp_val))
-				#frappe.msgprint("prev reserved qty: {0}".format(wip_strip.reserved_qty_for_production))
-				#frappe.msgprint("new reserved qty: {0}".format(wip_strip_reserved_qty_for_production))			
-				#frappe.throw("2 was called")
 				item.db_set("consumed_qty",temp_batch_qty)
 				update_projected_qty(item.item_code,pwo.wip_warehouse,None,None,wip_strip_reserved_qty_for_production)
 				temp_total_pipe_weight = 0
@@ -438,10 +430,6 @@ def material_manufacture(pipes_work_order,manufacture_qty,status):
 				wip_strip_reserved_qty_for_production = wip_strip.reserved_qty_for_production - (round((item.batch_qty - item.consumed_qty),2))
 				wip_strip_reserved_qty_for_production = round(wip_strip_reserved_qty_for_production,2)
 				temp_val = (round((item.batch_qty - item.consumed_qty),2))
-				#frappe.msgprint("remaining strip: {0}".format(temp_val))
-				#frappe.msgprint("prev reserved qty: {0}".format(wip_strip.reserved_qty_for_production))
-				#frappe.msgprint("new reserved qty: {0}".format(wip_strip_reserved_qty_for_production))			
-				#frappe.throw("2 was called")
 				item.db_set("consumed_qty",item.batch_qty)
 				update_projected_qty(item.item_code,pwo.wip_warehouse,None,None,wip_strip_reserved_qty_for_production)
 				
@@ -566,10 +554,6 @@ def scrap_trasnfer(pipes_work_order,pipe_jala_bora,phakra_pipe,bari_end_cut):
 				new_wip_strip_reserved_qty_for_production = round(new_wip_strip_reserved_qty_for_production,2)
 				#frappe.msgprint("total scrap weight {0}".format(total_weight_tmp))
 				temp_val = (round((item.batch_qty - item.consumed_qty),2))
-				#frappe.msgprint("remaining strip: {0}".format(temp_val))
-				#frappe.msgprint("prev reserved qty: {0}".format(wip_strip.reserved_qty_for_production))
-				#frappe.msgprint("new reserved qty: {0}".format(new_wip_strip_reserved_qty_for_production))			
-				#frappe.throw("1 was called")
 				item.db_set("consumed_qty",item.batch_qty)
 				update_projected_qty(item.item_code,pwo.wip_warehouse,None,None,new_wip_strip_reserved_qty_for_production)
 
@@ -584,12 +568,7 @@ def scrap_trasnfer(pipes_work_order,pipe_jala_bora,phakra_pipe,bari_end_cut):
 				temp_batch_qty = round(item.consumed_qty,2) + total_weight_tmp
 				wip_strip = get_bin(item.item_code,pwo.wip_warehouse)
 				new_wip_strip_reserved_qty_for_production = wip_strip.reserved_qty_for_production - total_weight_tmp
-				#frappe.msgprint("total scrap weight {0}".format(total_weight_tmp))
 				temp_val = (round((item.batch_qty - item.consumed_qty),2))
-				#frappe.msgprint("remaining strip: {0}".format(temp_val))
-				#frappe.msgprint("prev reserved qty: {0}".format(wip_strip.reserved_qty_for_production))
-				#frappe.msgprint("new reserved qty: {0}".format(new_wip_strip_reserved_qty_for_production))			
-				#frappe.throw("2 was called")
 				item.db_set("consumed_qty",temp_batch_qty)
 				update_projected_qty(item.item_code,pwo.wip_warehouse,None,None,new_wip_strip_reserved_qty_for_production)
 				total_weight_tmp = 0
@@ -607,10 +586,6 @@ def scrap_trasnfer(pipes_work_order,pipe_jala_bora,phakra_pipe,bari_end_cut):
 				new_wip_strip_reserved_qty_for_production = wip_strip.reserved_qty_for_production - (round((item.batch_qty - item.consumed_qty),2))
 				#frappe.msgprint("total scrap weight {0}".format(total_weight_tmp))
 				temp_val = (round((item.batch_qty - item.consumed_qty),2))
-				#frappe.msgprint("remaing strip: {0}".format(temp_val))
-				#frappe.msgprint("prev reserved qty: {0}".format(wip_strip.reserved_qty_for_production))
-				#frappe.msgprint("new reserved qty: {0}".format(new_wip_strip_reserved_qty_for_production))			
-				#frappe.throw("3 was called")
 				item.db_set("consumed_qty",item.batch_qty)
 				update_projected_qty(item.item_code,pwo.wip_warehouse,None,None,new_wip_strip_reserved_qty_for_production)
 
@@ -692,7 +667,6 @@ def init_bin(item,warehouse):
 	if pwo_bin.ordered_qty == None:
 		pwo_bin.db_set("ordered_qty",0)
 	if pwo_bin.indented_qty == None:
-		frappe.throw(_("indented qty is None"))
 		pwo_bin.db_set("indented_qty",0)	
 	if pwo_bin.planned_qty == None:
 		pwo_bin.db_set("planned_qty",0)

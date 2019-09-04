@@ -12,19 +12,30 @@
   "column_break_8",
   "company",
   "material_transferred_for_manufacturing",
-  "sales_order",
-  "items_section",
-  "production_item",
-  "warehouses",
-  "wip_warehouse",
-  "fg_warehouse",
-  "column_break_17",
-  "scrap_warehouse",
   "required_items_section",
-  "required_items",
+  "required_item",
+  "coil_width",
   "column_break_18",
   "batch_no",
-  "raw_material_qty",
+  "column_break_23",
+  "batch_qty",
+  "allocate_quantity",
+  "transferred_quantity",
+  "items_section",
+  "production_item",
+  "weight_section_section",
+  "total_strips_weight",
+  "column_break_11",
+  "coil_side_cutting",
+  "scrap_percentage",
+  "warehouses",
+  "s_warehouse",
+  "column_break_16",
+  "wip_warehouse",
+  "column_break_17",
+  "t_warehouse",
+  "column_break_20",
+  "scrap_warehouse",
   "time",
   "planned_start_date",
   "actual_start_date",
@@ -34,7 +45,7 @@
   "expected_delivery_date",
   "more_info",
   "material_request",
-  "description",
+  "sales_order",
   "column_break_31",
   "amended_from"
  ],
@@ -71,6 +82,7 @@
    "default": "0",
    "fieldname": "skip_material_transfer_to_wip_warehouse",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Skip Material Transfer to WIP Warehouse"
   },
   {
@@ -100,18 +112,21 @@
    "fieldtype": "Link",
    "in_global_search": 1,
    "label": "Sales Order",
-   "options": "Sales Order"
+   "options": "Sales Order",
+   "read_only": 1
   },
   {
+   "depends_on": "eval:doc.allocate_quantity!=0 && doc.allocate_quantity!=null ",
    "fieldname": "items_section",
    "fieldtype": "Section Break",
+   "label": "Production Items",
    "options": "fa fa-shopping-cart"
   },
   {
    "allow_bulk_edit": 1,
    "fieldname": "production_item",
    "fieldtype": "Table",
-   "label": "Items To Manufacture",
+   "label": "Items",
    "options": "Strip Work Order Item",
    "reqd": 1
   },
@@ -129,13 +144,6 @@
    "remember_last_selected_value": 1
   },
   {
-   "fieldname": "fg_warehouse",
-   "fieldtype": "Link",
-   "label": "Target Warehouse",
-   "options": "Warehouse",
-   "remember_last_selected_value": 1
-  },
-  {
    "fieldname": "column_break_17",
    "fieldtype": "Column Break"
   },
@@ -147,16 +155,10 @@
    "remember_last_selected_value": 1
   },
   {
+   "depends_on": "eval:doc.s_warehouse!=null && doc.wip_warehouse!=null && doc.t_warehouse!=null && doc.scrap_warehouse!=null",
    "fieldname": "required_items_section",
    "fieldtype": "Section Break",
-   "label": "Required Items"
-  },
-  {
-   "fieldname": "required_items",
-   "fieldtype": "Link",
-   "label": "Required Items",
-   "no_copy": 1,
-   "options": "Item"
+   "label": "Required Item"
   },
   {
    "fieldname": "time",
@@ -213,12 +215,7 @@
    "fieldname": "material_request",
    "fieldtype": "Link",
    "label": "Material Request",
-   "options": "Material Request"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Small Text",
-   "label": "Item Description",
+   "options": "Material Request",
    "read_only": 1
   },
   {
@@ -239,21 +236,114 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.required_item",
    "fieldname": "batch_no",
    "fieldtype": "Link",
    "label": "Batch No",
    "options": "Batch"
   },
   {
-   "fieldname": "raw_material_qty",
+   "default": "0",
+   "fieldname": "total_strips_weight",
    "fieldtype": "Float",
-   "label": "Quantity",
+   "label": "Total Strips Weight (kg)",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "coil_side_cutting",
+   "fieldtype": "Float",
+   "label": "Coil Side Cutting (kg)",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.allocate_quantity!=0 && doc.allocate_quantity!=0",
+   "fieldname": "weight_section_section",
+   "fieldtype": "Section Break",
+   "label": "Weight Section"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "s_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "t_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "remember_last_selected_value": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.batch_no",
+   "fieldname": "allocate_quantity",
+   "fieldtype": "Float",
+   "label": "Allocate Quantity",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "required_item",
+   "fieldtype": "Link",
+   "label": "Coil Item Code",
+   "no_copy": 1,
+   "options": "Item"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.batch_no",
+   "fieldname": "batch_qty",
+   "fieldtype": "Float",
+   "label": "Batch Available Quantity",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "coil_width",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Coil_width",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scrap_percentage",
+   "fieldtype": "Float",
+   "label": "Scrap %",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.allocate_quantity>0",
+   "fieldname": "transferred_quantity",
+   "fieldtype": "Float",
+   "label": "Transferred Quantity",
+   "precision": "2",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
- "modified": "2019-08-08 23:52:32.084429",
+ "modified": "2019-08-31 13:41:52.906666",
  "modified_by": "Administrator",
  "module": "Pipes Manufacturing",
  "name": "Strip Work Order",

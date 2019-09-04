@@ -92,6 +92,7 @@
    "in_standard_filter": 1,
    "label": "Pipe To Manufacture",
    "options": "Item",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -118,7 +119,7 @@
   {
    "fieldname": "qty",
    "fieldtype": "Float",
-   "label": "Qty To Manufacture",
+   "label": "Quantity To Manufacture",
    "precision": "2",
    "read_only": 1
   },
@@ -164,6 +165,7 @@
    "remember_last_selected_value": 1
   },
   {
+   "depends_on": "eval:doc.s_warehouse && doc.wip_warehouse && doc.t_warehouse && doc.a_quality_pipe_warehouse && doc.b_quality_pipe_warehouse && doc.scrap_warehouse",
    "fieldname": "required_items_section",
    "fieldtype": "Section Break",
    "label": "Required Items"
@@ -216,7 +218,6 @@
    "label": "Expected Delivery Date"
   },
   {
-   "depends_on": "eval:doc.docstatus==1",
    "fieldname": "more_info",
    "fieldtype": "Section Break",
    "label": "More Information",
@@ -312,13 +313,13 @@
    "remember_last_selected_value": 1
   },
   {
+   "depends_on": "eval:doc.s_warehouse && doc.wip_warehouse && doc.t_warehouse && doc.a_quality_pipe_warehouse && doc.b_quality_pipe_warehouse && doc.scrap_warehouse",
    "fieldname": "required_material_details_section",
    "fieldtype": "Section Break",
    "label": "Required Material Details (Kg)"
   },
   {
    "default": "0",
-   "depends_on": "eval:doc.docstatus==1",
    "fieldname": "total_required_material",
    "fieldtype": "Float",
    "label": "Total Required Material",
@@ -381,7 +382,7 @@
   {
    "default": "0",
    "fieldname": "no_of_a_quality_pipes",
-   "fieldtype": "Float",
+   "fieldtype": "Int",
    "label": "No of A Quality Pipes",
    "precision": "2",
    "read_only": 1
@@ -389,7 +390,7 @@
   {
    "default": "0",
    "fieldname": "no_of_b_quality_pipes",
-   "fieldtype": "Float",
+   "fieldtype": "Int",
    "label": "No of B Quality Pipes",
    "precision": "2",
    "read_only": 1
@@ -402,7 +403,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2019-08-29 13:09:03.459516",
+ "modified": "2019-09-03 18:46:41.272215",
  "modified_by": "Administrator",
  "module": "Pipes Manufacturing",
  "name": "Pipes Work Order",

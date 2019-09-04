@@ -5,30 +5,25 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "item_code",
-  "qty",
+  "pipe_item_code",
+  "pipe_item_group",
   "column_break_3",
-  "item_group"
+  "strip_item_code",
+  "strip_item_group",
+  "strip_width",
+  "column_break_6",
+  "qty",
+  "strip_weight",
+  "total_strip_weight"
  ],
  "fields": [
   {
-   "fieldname": "item_code",
-   "fieldtype": "Link",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Item Code",
-   "options": "Item",
-   "print_width": "150px",
-   "reqd": 1,
-   "search_index": 1,
-   "width": "150px"
-  },
-  {
+   "default": "0",
    "fieldname": "qty",
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Quantity to manufacture",
-   "read_only": 1,
+   "precision": "1",
    "reqd": 1
   },
   {
@@ -36,17 +31,74 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "item_group",
+   "fieldname": "pipe_item_group",
    "fieldtype": "Link",
    "hidden": 1,
-   "label": "Item Group",
+   "label": "Pipe Item Group",
    "options": "Item Group",
    "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "strip_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Strip Item Code",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "strip_item_group",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Strip Item Group",
+   "options": "Item Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "strip_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Strip Weight",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_strip_weight",
+   "fieldtype": "Float",
+   "label": "Total Strip Weight",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pipe_item_code",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Pipe Item Code",
+   "options": "Item",
+   "print_width": "150px",
+   "reqd": 1,
+   "search_index": 1,
+   "width": "150px"
+  },
+  {
+   "fieldname": "strip_width",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Strip Width",
+   "precision": "2",
    "read_only": 1
   }
  ],
  "istable": 1,
- "modified": "2019-08-08 23:53:21.443870",
+ "modified": "2019-08-31 12:14:54.355035",
  "modified_by": "Administrator",
  "module": "Pipes Manufacturing",
  "name": "Strip Work Order Item",

@@ -1,10 +1,19 @@
+var refresh_check = 0;
 frappe.ui.form.on('Material Request', {
     refresh: function(frm) {
-		frm.events.make_custom_buttons(frm);
-    },
+		if (refresh_check == 0){
+			frm.events.make_custom_buttons(frm);
+		}
+		
+	},
+	
+	onload: function(){
+		refresh_check = 0;
+	},
 
     make_custom_buttons: function(frm) {
         if (frm.doc.docstatus == 1 && frm.doc.status != 'Stopped' ) {
+			refresh_check = 1;
 			var has_pipe = 0;
 			var has_non_pipe = 0;
 			var make_pwo_button = 0;  
@@ -61,7 +70,7 @@ frappe.ui.form.on('Material Request', {
 		});
 	}
 })
-
+/*
 frappe.ui.form.on("Material Request Item",{
 	item_code: function(frm,cdt,cdn){
 		var item = frappe.model.get_doc(cdt,cdn);
@@ -75,3 +84,4 @@ frappe.ui.form.on("Material Request Item",{
 		
 	}
 })
+*/

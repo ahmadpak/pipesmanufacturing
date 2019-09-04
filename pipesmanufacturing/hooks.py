@@ -27,6 +27,23 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+
+fixtures = [{
+    'dt': 'Custom Field', 'filters':[
+        [
+            'name', 'in', [
+                "Material Request-pipes_work_order",
+                "Stock Entry-pipes_work_order",
+                "Stock Entry-strip_work_order",
+                "Batch-batch_stock_status",
+                "Batch-pipes_work_order",
+                "Batch-strip_work_order",
+                "Batch-allocated_quantity"
+            ]
+        ]
+    ]
+}]
+
 doctype_js = {
     "Material Request" : "pipes_manufacturing/utils/material_request.js"
 }
@@ -102,6 +119,9 @@ doc_events = {
     "Stock Entry":{
         "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status",
         "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status"
+    },
+    'Material Request':{
+        'validate'  :   'pipesmanufacturing.pipes_manufacturing.utils.material_request.verify_items'
     }
 }
 

@@ -23,3 +23,22 @@ def raise_pipes_work_orders(material_request):
             mr.db_set("pipes_work_order",pipes_order.name)
             #pipes_orders.append(pipes_order.name)
             frappe.msgprint("Pipes Work Order# " + pipes_order.name + " created")
+
+
+def verify_items(self,frm):
+        item_cmp1 = None
+        item_cmp2 = None
+        throw_error = 0
+        for i in range(len(self.items)):
+            item_cmp1 = self.items[len(self.items)-i-1].item_code
+            for j in range(len(self.items)):
+                
+                if j < len(self.items)-i-1:
+                    item_cmp2 = self.items[j].item_code
+                    if item_cmp1 == item_cmp2:
+                        #frappe.msgprint('{0} is alreaded added in row {1}'.format(item_cmp1,j+1))
+                        throw_error = 1
+            
+        
+        if throw_error == 1:
+            frappe.throw('Cannot add an item multiple times please correct!')

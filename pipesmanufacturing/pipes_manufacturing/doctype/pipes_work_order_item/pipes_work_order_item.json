@@ -54,6 +54,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "batch_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -74,7 +75,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Not Transferred\nTransferred",
+   "options": "Not Transferred\nTransferred\nConsumed",
    "read_only": 1
   },
   {
@@ -87,7 +88,7 @@
   }
  ],
  "istable": 1,
- "modified": "2019-08-25 02:03:45.170523",
+ "modified": "2019-09-02 14:26:24.378382",
  "modified_by": "Administrator",
  "module": "Pipes Manufacturing",
  "name": "Pipes Work Order Item",

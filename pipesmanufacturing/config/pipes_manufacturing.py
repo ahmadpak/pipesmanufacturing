@@ -11,7 +11,7 @@ def get_data():
                 {
                     "type": "doctype",
                     "name": "Pipes Work Order",
-                    #"lable": _("Pipes Work Order"),
+                    "lable": _("Pipes Work Order"),
                     "description": _("Managing ERW pipe manufactuing"),
                     "onboard": 1,
                 },
@@ -19,7 +19,7 @@ def get_data():
                 {
                     "type": "doctype",
                     "name": "Strip Work Order",
-                    #"lable": _("Strip Work Order"),
+                    "lable": _("Strip Work Order"),
                     "description": _("Managing HRC and CRC strip Work Order"),
                     "onboard": 1,
                 }

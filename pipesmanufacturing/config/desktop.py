@@ -7,12 +7,12 @@ def get_data():
 	
 		{
 			"module_name": "Pipes Manufacturing",
-			"category": "Domains",
+			"category": "Modules",
 			"label": _("Pipes Manufacturing"),
 			"color": "blue",
 			"icon": "octicon octicon-book",
 			"type": "module",
 			"description": "ERW Pipe Manufacturing Module"
-			#"onboard_present": 1
+			"onboard_present": 1
 		}
 	]

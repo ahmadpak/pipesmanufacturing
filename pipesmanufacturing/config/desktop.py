@@ -7,7 +7,7 @@ def get_data():
 	
 		{
 			"module_name": "Pipes Manufacturing",
-			"category": "Modules",
+			"category": "Domains",
 			"label": _("Pipes Manufacturing"),
 			"color": "blue",
 			"icon": "octicon octicon-book",

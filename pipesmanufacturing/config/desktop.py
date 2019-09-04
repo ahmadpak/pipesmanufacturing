@@ -12,7 +12,7 @@ def get_data():
 			"color": "blue",
 			"icon": "octicon octicon-book",
 			"type": "module",
-			"description": "ERW Pipe Manufacturing Module"
+			"description": "ERW Pipe Manufacturing Module",
 			"onboard_present": 1
 		}
 	]

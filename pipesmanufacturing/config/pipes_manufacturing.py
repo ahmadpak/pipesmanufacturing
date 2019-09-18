@@ -7,6 +7,7 @@ def get_data():
         {
 			
             "label": _("Work Order"),
+            "icon": "octicon octicon-project",
             "items": [
                 {
                     "type": "doctype",
@@ -22,24 +23,7 @@ def get_data():
                     "lable": _("Strip Work Order"),
                     "description": _("Managing HRC and CRC strip Work Order"),
                     "onboard": 1,
-                }
-        #        {
-        #            "type": "doctype",
-        #            "name": "Coil Work Order",
-        #            "onboard": 1,
-        #            "lable": _("Coil Work Order"),
-        #            "description": _("Managing HRC and CRC coil Work Order"),
-        #        }
-        #    ],
-        #    "label": ("Settings"),
-        #    "items": [
-        #        {
-        #            "type": "doctype",
-        #            "name": "Manufacturing Settings",
-        #            "onboard": 1,
-        #            "label": _("Manufacturing Settings"),
-        #            "description": _("Settings for manufacturing"),
-        #        }
+                },
             ]    
         }
     ]

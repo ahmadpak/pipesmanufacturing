@@ -1,17 +1,18 @@
 var refresh_check = 0;
 frappe.ui.form.on('Material Request', {
     refresh: function(frm) {
-		if (refresh_check == 0){
-			frm.events.make_custom_buttons(frm);
+		if(frm.doc.material_request_type == "Manufacture"){
+			if (refresh_check == 0){
+				frm.events.make_custom_buttons_SP(frm);
+			}
 		}
-		
 	},
 	
 	onload: function(){
 		refresh_check = 0;
 	},
 
-    make_custom_buttons: function(frm) {
+    make_custom_buttons_SP: function(frm) {
         if (frm.doc.docstatus == 1 && frm.doc.status != 'Stopped' ) {
 			refresh_check = 1;
 			var has_pipe = 0;
@@ -34,10 +35,10 @@ frappe.ui.form.on('Material Request', {
 					frm.add_custom_button(__("Pipes Work Order"),
 						() => frm.events.raise_pipes_work_orders(frm), __('Create'));
 				}
-				if (has_non_pipe == 1){
-					frm.add_custom_button(__("Work Order"),
-					() => frm.events.raise_work_orders(frm), __('Create'));
-				}
+				// if (has_non_pipe == 1){
+				// 	frm.add_custom_button(__("Work Order"),
+				// 	() => frm.events.raise_work_orders(frm), __('Create'));
+				// }
             }
         }
 	},
@@ -69,7 +70,7 @@ frappe.ui.form.on('Material Request', {
 			}
 		});
 	}
-})
+});
 /*
 frappe.ui.form.on("Material Request Item",{
 	item_code: function(frm,cdt,cdn){

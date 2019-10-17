@@ -591,9 +591,9 @@ erpnext.pipes_work_order = {
 						var alertmsg = "Pipes Processed";
 						frappe.show_alert(alertmsg);
 					}
-				})
+				});
 			}
 		});
 		d.show();
 	}
-}
+};

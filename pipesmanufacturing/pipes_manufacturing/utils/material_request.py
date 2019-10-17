@@ -38,7 +38,14 @@ def verify_items(self,frm):
                     if item_cmp1 == item_cmp2:
                         #frappe.msgprint('{0} is alreaded added in row {1}'.format(item_cmp1,j+1))
                         throw_error = 1
-            
-        
+        has_non_pipe = 0
+        has_pipe = 0
+        for i in self.items:
+            if 'Pipe-MS' in str(i.item_code):
+                has_pipe = 1
+            else:
+                has_non_pipe = 1
+        if has_pipe == has_non_pipe == 1:
+            frappe.throw('Cannot add Pipe and Non-Pipe items together please correct!')
         if throw_error == 1:
             frappe.throw('Cannot add an item multiple times please correct!')

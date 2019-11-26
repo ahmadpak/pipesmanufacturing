@@ -1,7 +1,7 @@
 import frappe
 from frappe.model.document import Document
 from erpnext.stock.doctype.batch.batch import get_batch_qty
-def update_bactch_stock_status(self, cdt):
+def update_batch_stock_status(self, cdt):
     if self.doctype == "Purchase Receipt":
         for item in self.items:
             if "Strip-MS" in str(item.item_code):

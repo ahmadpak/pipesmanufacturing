@@ -109,16 +109,16 @@ doctype_js = {
 
 doc_events = {
     "Delivery Note":{
-        "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status",
-        "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status"
+        "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_batch_stock_status",
+        "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_batch_stock_status"
     },
     "Purchase Receipt":{
-        "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status",
-        "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status"
+        "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_batch_stock_status",
+        "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_batch_stock_status"
     },
     "Stock Entry":{
-        "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status",
-        "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_bactch_stock_status"
+        "on_cancel"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_batch_stock_status",
+        "on_submit"  :   "pipesmanufacturing.pipes_manufacturing.utils.batch.update_batch_stock_status"
     },
     'Material Request':{
         'validate'  :   'pipesmanufacturing.pipes_manufacturing.utils.material_request.verify_items'

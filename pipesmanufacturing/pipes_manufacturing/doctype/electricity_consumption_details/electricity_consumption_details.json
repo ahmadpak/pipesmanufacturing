@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "creation": "2020-01-03 07:04:22.321409",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "units_section",
+  "m_kva_units",
+  "e_kva_units",
+  "column_break_4",
+  "m_kw_units",
+  "e_kw_units",
+  "section_break_4",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "units_section",
+   "fieldtype": "Section Break",
+   "label": "Units"
+  },
+  {
+   "fieldname": "m_kva_units",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "KVA Units (Morning)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "e_kva_units",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "KVA Units (Evening)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "e_kw_units",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "KW Units (Evening)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "m_kw_units",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "KW Units (Morning)",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-01-03 11:15:22.747388",
+ "modified_by": "ahmad@metrotech.pk",
+ "module": "Pipes Manufacturing",
+ "name": "Electricity Consumption Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
